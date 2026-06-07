@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEarn Premium E-Books - Welcome</title>
+    <meta name="description" content="Welcome to VEarn Premium E-Books. Unlock your potential today.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Custom Brand Colors from PRD */
+            --rich-charcoal: #121212;
+            --lighter-charcoal: #242424;
+            --pure-white: #FFFFFF;
+            --light-gray: #E0E0E0;
+            --classic-gold: #D4AF37;
+            --deep-black: #121212;
+
+            /* Shadows & Effects */
+            --gold-glow: 0 4px 20px rgba(212, 175, 55, 0.5);
+            --gold-glow-hover: 0 12px 30px rgba(212, 175, 55, 0.8);
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--rich-charcoal);
+            color: var(--light-gray);
+            scroll-behavior: smooth;
+        }
+
+        /* Header Component */
+        header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(18, 18, 18, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--lighter-charcoal);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--classic-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--classic-gold);
+        }
+
+        /* Hero / Welcome Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 5%;
+            min-height: 70vh;
+            gap: 40px;
+            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.1), transparent 50%);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: var(--classic-gold);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .hero h1 {
+            color: var(--pure-white);
+            font-size: 52px;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--classic-gold);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #A0A0A0;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .hero-btn {
+            background-color: var(--classic-gold);
+            color: var(--deep-black);
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: var(--gold-glow);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--gold-glow-hover);
+            background-color: #E5C354;
+        }
+
+        .hero-images {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+
+        .book-img {
+            position: absolute;
+            width: 250px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.5s ease;
+        }
+
+        .book-1 {
+            transform: rotate(-5deg) translateX(-60px);
+            z-index: 2;
+        }
+
+        .book-2 {
+            transform: rotate(10deg) translateX(60px);
+            z-index: 1;
+            filter: brightness(0.8);
+        }
+
+        .hero-images:hover .book-1 {
+            transform: rotate(-8deg) translateX(-70px) scale(1.05);
+        }
+
+        .hero-images:hover .book-2 {
+            transform: rotate(15deg) translateX(80px) scale(1.05);
+            filter: brightness(1);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 5%;
+            background-color: var(--lighter-charcoal);
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--pure-white);
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--rich-charcoal);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--classic-gold);
+        }
+
+        .feature-card h3 {
+            color: var(--pure-white);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #A0A0A0;
+            line-height: 1.5;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .products-grid {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        /* Product Card Component */
+        .product-card {
+            background-color: var(--lighter-charcoal);
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 380px;
+            width: 100%;
+            box-shadow: var(--gold-glow);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--gold-glow-hover);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .media-container {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 25px;
+            background-color: #000;
+            aspect-ratio: 4/5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .promo-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .product-card:hover .promo-video {
+            opacity: 1;
+        }
+
+        .product-card:hover .cover-image {
+            opacity: 0.1;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            color: var(--pure-white);
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 15px;
+            margin-bottom: 24px;
+            color: #A0A0A0;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .pricing {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .discount-price {
+            color: var(--classic-gold);
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .original-price {
+            color: #777;
+            font-size: 16px;
+            text-decoration: line-through;
+        }
+
+        /* Buy Button Component */
+        .buy-btn {
+            background-color: var(--classic-gold);
+            color: var(--deep-black);
+            font-size: 17px;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .buy-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+            background-color: #E5C354;
+        }
+
+        .buy-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--lighter-charcoal);
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 40px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                margin: 0 auto 30px auto;
+            }
+
+            .hero-images {
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+
+            .product-card {
+                padding: 20px;
+            }
+
+            .hero-images {
+                height: 300px;
+            }
+
+            .book-1 {
+                width: 180px;
+                transform: rotate(-5deg) translateX(-30px);
+            }
+
+            .book-2 {
+                width: 180px;
+                transform: rotate(10deg) translateX(30px);
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Component -->
+    <header>
+        <a href="#" class="logo-container">
+            <img src="Images/Logo.png" alt="VEarn Logo" class="logo-img" onerror="this.style.display='none'">
+            <span class="logo-text">VEarn</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#welcome">Home</a>
+            <a href="#features">Features</a>
+            <a href="#books">E-Books</a>
+        </nav>
+    </header>
+
+    <!-- Welcome / Hero Section -->
+    <section class="hero" id="welcome">
+        <div class="hero-content">
+            <div class="hero-badge">🔥 The ultimate learning experience</div>
+            <h1>Welcome to <span>VEarn Books</span></h1>
+            <p>Discover premium knowledge designed to transform your digital income. Learn the secrets of AI technology
+                with our step-by-step guides available in both Sinhala and English.</p>
+            <a href="#books" class="hero-btn">Explore Our Books</a>
+        </div>
+        <div class="hero-images">
+            <img src="Images/English book.png" alt="English E-Book" class="book-img book-2">
+            <img src="Images/Sinhala book.png" alt="Sinhala E-Book" class="book-img book-1">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose Our E-Books?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Expert Strategies</h3>
+                <p>Learn proven methods and insider secrets used by top professionals to maximize digital income using
+                    Artificial Intelligence.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Step-by-Step Guide</h3>
+                <p>We break down complex AI tools into simple, easy-to-understand steps perfect for both beginners and
+                    experts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Access</h3>
+                <p>Get immediate access to your digital copy via WhatsApp right after your purchase. Start learning
+                    today.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="books">
+        <h2 class="section-title">Our Premium E-Books</h2>
+
+        <div class="products-grid">
+            <!-- Sinhala Book Card -->
+            <div class="product-card">
+                <div class="media-container">
+                    <img src="Images/Sinhala book.png" alt="ස්මාර්ට් AI හරහා සුපිරි ආදායමකට" class="cover-image">
+                </div>
+
+                <div class="card-content">
+                    <h2 class="card-title">ස්මාර්ට් AI හරහා සුපිරි ආදායමකට</h2>
+                    <p class="card-desc">AI තාක්ෂණය භාවිතා කරමින් ඔබගේ ආදායම වර්ධනය කරගන්නා ආකාරය පිළිබඳව පියවරෙන් පියවර
+                        මගපෙන්වීම.</p>
+
+                    <div class="pricing">
+                        <span class="discount-price">Rs. 1,490</span>
+                        <span class="original-price">Rs. 2,990</span>
+                    </div>
+
+                    <a href="#" class="buy-btn" data-title="ස්මාර්ට් AI හරහා සුපිරි ආදායමකට"
+                        onclick="buyBook(this, event)">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                        </svg>
+                        Buy Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- English Book Card -->
+            <div class="product-card">
+                <div class="media-container">
+                    <img src="Images/English book.png" alt="Smart AI for Super Income" class="cover-image">
+                </div>
+
+                <div class="card-content">
+                    <h2 class="card-title">Smart AI for Super Income</h2>
+                    <p class="card-desc">Step-by-step guidance on how to grow your digital income using modern
+                        Artificial Intelligence tools.</p>
+
+                    <div class="pricing">
+                        <span class="discount-price">Rs. 1,490</span>
+                        <span class="original-price">Rs. 2,990</span>
+                    </div>
+
+                    <a href="#" class="buy-btn" data-title="Smart AI for Super Income" onclick="buyBook(this, event)">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                        </svg>
+                        Buy Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 VEarn. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // WhatsApp Checkout Flow
+        const phoneNumber = "94772224929"; // User's updated number
+
+        function buyBook(element, event) {
+            event.preventDefault();
+            const bookTitle = element.getAttribute('data-title');
+            const message = `Hi, I want to buy the e-book: ${bookTitle}`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Product Card Interactions (Hover Video Play) - Only if video exists
+            const cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const video = card.querySelector('.promo-video');
+                if (video) {
+                    card.addEventListener('mouseenter', () => {
+                        video.play().catch(err => {
+                            console.log("Auto-play prevented or video not loaded:", err);
+                        });
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        video.pause();
+                        video.currentTime = 0;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
